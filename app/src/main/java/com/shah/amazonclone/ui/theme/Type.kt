@@ -2,33 +2,46 @@ package com.shah.amazonclone.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.shah.amazonclone.R
 
-// Set of Material typography styles to start with
+/**
+ * Created by Monil Shah on 25/06/22.
+ */
+
+private val OpenSans = FontFamily(
+    Font(R.font.open_sans_bold, weight = FontWeight.Bold),
+    Font(R.font.open_sans_extra_bold, weight = FontWeight.ExtraBold),
+    Font(R.font.open_sans_light, weight = FontWeight.Light),
+    Font(R.font.open_sans_medium, weight = FontWeight.Medium),
+    Font(R.font.open_sans_regular, weight = FontWeight.Normal),
+    Font(R.font.open_sans_semi_bold, weight = FontWeight.SemiBold),
+)
+
+// Typography used in the app
 val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+    displayLarge = TextStyle(
+        fontFamily = OpenSans,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
     ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
+    displayMedium = TextStyle(
+        fontFamily = OpenSans,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        lineHeight = 21.sp,
+        letterSpacing = 0.5.sp
+    ),
+    displaySmall = TextStyle(
+        fontFamily = OpenSans,
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp,
+        lineHeight = 21.sp,
         letterSpacing = 0.5.sp
     )
-    */
 )

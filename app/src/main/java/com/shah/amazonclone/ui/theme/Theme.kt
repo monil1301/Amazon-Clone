@@ -10,38 +10,46 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 
+/**
+ * Created by Monil Shah on 25/06/22.
+ */
+
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = DenimBlue,
+    onPrimary = Color.Black,
+    primaryContainer = VikingBlue,
+    onPrimaryContainer = Color.Black,
+    secondary = OrangePeel,
+    onSecondary = Color.Black,
+    secondaryContainer = SupernovaYellow,
+    onSecondaryContainer = Color.Black,
+    background = Color.White,
+    onBackground = Color.Black
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = DenimBlue,
+    onPrimary = Color.Black,
+    primaryContainer = VikingBlue,
+    onPrimaryContainer = Color.Black,
+    secondary = OrangePeel,
+    onSecondary = Color.Black,
+    secondaryContainer = SupernovaYellow,
+    onSecondaryContainer = Color.Black,
+    background = Color.White,
+    onBackground = Color.Black
 )
 
 @Composable
 fun AmazonCloneTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = true, // Dynamic color is available on Android 12+
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

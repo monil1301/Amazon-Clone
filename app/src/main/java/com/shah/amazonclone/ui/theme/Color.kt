@@ -2,10 +2,16 @@ package com.shah.amazonclone.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+/**
+ * Created by Monil Shah on 25/06/22.
+ */
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+// Orange
+val OrangePeel = Color(0xFFFF9900)
+
+// Yellow
+val SupernovaYellow = Color(0xFFFCBD34)
+
+// Blue
+val DenimBlue = Color(0xFF146EB4)
+val VikingBlue = Color(0xFF48A3C6)
