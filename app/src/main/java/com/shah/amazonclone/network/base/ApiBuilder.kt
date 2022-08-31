@@ -1,5 +1,6 @@
 package com.shah.amazonclone.network.base
 
+import com.shah.amazonclone.application.AmazonCloneApplication
 import com.shah.amazonclone.utilities.helpers.Constants
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
@@ -16,11 +17,11 @@ class ApiBuilder {
             "http://localHost:3000/" // replace localHost with your ip address
     }
 
-    fun <Api> buildApi(api: Class<Api>): Api {
+    fun <Api> buildApi(api: Class<Api>, application: AmazonCloneApplication?): Api {
 
         val okHttpBuilder = OkHttpClient.Builder()
         val client = okHttpBuilder.addInterceptor { chain ->
-            return@addInterceptor getResponse(chain)
+            return@addInterceptor getResponse(chain, application)
         }.build()
 
         return Retrofit.Builder()
@@ -31,9 +32,12 @@ class ApiBuilder {
             .create(api)
     }
 
-    private fun getResponse(chain: Interceptor.Chain): Response {
+    private fun getResponse(
+        chain: Interceptor.Chain,
+        application: AmazonCloneApplication?
+    ): Response {
         val response = chain.proceed(chain.request().newBuilder().also { requestBuilder ->
-            addHeaders(requestBuilder)
+            addHeaders(requestBuilder, application)
         }.build())
 
         return response
@@ -41,6 +45,7 @@ class ApiBuilder {
 
     private fun addHeaders(
         requestBuilder: Request.Builder,
+        application: AmazonCloneApplication?
     ) {
         requestBuilder.apply {
             header(
@@ -52,12 +57,10 @@ class ApiBuilder {
                 Constants.API.Headers.applicationJson
             )
 
-            // TODO ("Check internet connection")
-
             // Get access token from data store and send it in request header
-            val accessToken = runBlocking {
-                ""
-            }
+            val accessToken =
+                runBlocking { application?.userPreferences?.getString(Constants.DataStore.Keys.authToken) }
+
             header(
                 Constants.API.Headers.authorization,
                 Constants.API.Headers.getBearerToken(accessToken)
