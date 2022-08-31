@@ -1,5 +1,6 @@
 package com.shah.amazonclone.ui.component.auth
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.FocusManager
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -42,6 +44,7 @@ fun SignUpView(
     val signUpViewModel = remember { SignUpViewModel() }
     val focusManager = LocalFocusManager.current
     var isAuthenticating by remember { mutableStateOf(false) }
+    val context = LocalContext.current
 
     fun onSignUpButtonClicked() {
         val isSignUpDetailsValid = signUpViewModel.validateSignUpDetails(signUpDetails)
@@ -49,7 +52,15 @@ fun SignUpView(
         if (isSignUpDetailsValid) {
             isAuthenticating = true
 
-            // TODO api call to sign up
+            signUpViewModel.signUp(signUpDetails) { isSuccess, errorMessage ->
+                isAuthenticating = false
+
+                if (isSuccess) {
+                    // TODO save token and login
+                }
+
+                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

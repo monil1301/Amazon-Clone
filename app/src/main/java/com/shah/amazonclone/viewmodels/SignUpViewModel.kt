@@ -4,9 +4,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.shah.amazonclone.utilities.helpers.Constants
+import androidx.lifecycle.viewModelScope
 import com.shah.amazonclone.models.auth.SignUpDetails
 import com.shah.amazonclone.models.auth.SignUpFieldError
+import com.shah.amazonclone.network.SignUpApi
+import com.shah.amazonclone.network.base.ApiBuilder
+import com.shah.amazonclone.network.base.ResponseResource
+import com.shah.amazonclone.repositories.SignUpRepository
+import com.shah.amazonclone.utilities.helpers.Constants
+import com.shah.amazonclone.utilities.helpers.logD
+import kotlinx.coroutines.launch
 
 /**
  * Created by Monil Shah on 06/08/22.
@@ -14,8 +21,28 @@ import com.shah.amazonclone.models.auth.SignUpFieldError
 
 class SignUpViewModel: ViewModel() {
 
+    // Private variables
+    private val apiBuilder = ApiBuilder()
+    private val repository =
+        SignUpRepository(apiBuilder.buildApi(SignUpApi::class.java))
+
     // Public variables
     var signUpFieldError by mutableStateOf(SignUpFieldError())
+
+    // API Calls
+    fun signUp(signUpDetails: SignUpDetails, onResponse: (Boolean, String) -> Unit) =
+        viewModelScope.launch {
+            when (val response = repository.signUp(signUpDetails)) {
+                is ResponseResource.Failure -> {
+                    logD(message = "Sign up failed")
+                    onResponse(false, response.errorMessage ?: "Sign up failed")
+                }
+                is ResponseResource.Success -> {
+                    logD(message = "Successful Sign up")
+                    onResponse(true, "Successful Sign up")
+                }
+            }
+        }
 
     // Validation Methods
     fun validateSignUpDetails(signUpDetails: SignUpDetails): Boolean {
