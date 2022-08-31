@@ -40,4 +40,18 @@ object Constants {
             const val userName = "userName"
         }
     }
+
+    object BottomNavBar {
+        object Route {
+            const val home = "home"
+            const val account = "account"
+            const val cart = "cart"
+        }
+
+        object Title {
+            const val home = "Home"
+            const val account = "Account"
+            const val cart = "Cart"
+        }
+    }
 }
