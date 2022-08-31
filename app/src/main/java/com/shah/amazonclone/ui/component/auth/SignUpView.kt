@@ -59,9 +59,9 @@ fun SignUpView(
     ) {
         NameTextField(signUpDetails, signUpViewModel, focusManager)
 
-        EmailTextField(signUpDetails, signUpViewModel, focusManager)
+        EmailTextField(signUpDetails, signUpViewModel.signUpFieldError, focusManager)
 
-        PasswordTextField(signUpDetails, signUpViewModel, focusManager) {
+        PasswordTextField(signUpDetails, signUpViewModel.signUpFieldError, focusManager) {
             onSignUpButtonClicked()
         }
 

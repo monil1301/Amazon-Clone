@@ -10,9 +10,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import com.shah.amazonclone.R
-import com.shah.amazonclone.models.auth.SignUpDetails
+import com.shah.amazonclone.models.auth.LoginDetails
+import com.shah.amazonclone.models.auth.LoginFieldError
 import com.shah.amazonclone.ui.component.common.A_OutlinedTextField
-import com.shah.amazonclone.viewmodels.SignUpViewModel
 
 /**
  * Created by Monil Shah on 31/08/22.
@@ -20,19 +20,19 @@ import com.shah.amazonclone.viewmodels.SignUpViewModel
 
 @Composable
 fun PasswordTextField(
-    signUpDetails: SignUpDetails,
-    signUpViewModel: SignUpViewModel,
+    loginDetails: LoginDetails,
+    fieldError: LoginFieldError,
     focusManager: FocusManager,
     onDoneClick: () -> Unit = {}
 ) {
     A_OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         label = stringResource(id = R.string.password),
-        text = signUpDetails.password ?: "",
-        isError = signUpViewModel.signUpFieldError.passwordEmpty || signUpViewModel.signUpFieldError.passwordLength,
+        text = loginDetails.password ?: "",
+        isError = fieldError.passwordEmpty || fieldError.passwordLength,
         errorMessage = when {
-            signUpViewModel.signUpFieldError.passwordEmpty -> stringResource(id = R.string.empty_password)
-            signUpViewModel.signUpFieldError.passwordLength -> stringResource(id = R.string.password_minimum_characters)
+            fieldError.passwordEmpty -> stringResource(id = R.string.empty_password)
+            fieldError.passwordLength -> stringResource(id = R.string.password_minimum_characters)
             else -> null
         },
         keyboardOptions = KeyboardOptions(
@@ -46,7 +46,7 @@ fun PasswordTextField(
             }
         ),
         onValueChanged = { updatedPassword ->
-            signUpDetails.password = updatedPassword
+            loginDetails.password = updatedPassword
         }
     )
 }
