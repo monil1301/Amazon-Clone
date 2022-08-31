@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Amazon Clone</string>
+
+    // Activity titles
+    <string name="title_activity_auth">AuthActivity</string>
+
+    // Auth
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+
+    // Auth Error Messages
+    <string name="mandatory_name">Name is mandatory</string>
+    <string name="name_minimum_characters">Name should be at-least 3 characters</string>
+    <string name="empty_email">Email Address cannot be empty</string>
+    <string name="invalid_email">Invalid Email Address</string>
+    <string name="empty_password">Password cannot be empty</string>
+    <string name="password_minimum_characters">Password should at-least be 4 characters</string>
 </resources>

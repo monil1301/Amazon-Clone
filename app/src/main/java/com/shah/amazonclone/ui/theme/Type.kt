@@ -12,7 +12,7 @@ import com.shah.amazonclone.R
  * Created by Monil Shah on 25/06/22.
  */
 
-private val OpenSans = FontFamily(
+val OpenSans = FontFamily(
     Font(R.font.open_sans_bold, weight = FontWeight.Bold),
     Font(R.font.open_sans_extra_bold, weight = FontWeight.ExtraBold),
     Font(R.font.open_sans_light, weight = FontWeight.Light),
@@ -43,5 +43,15 @@ val Typography = Typography(
         fontSize = 12.sp,
         lineHeight = 21.sp,
         letterSpacing = 0.5.sp
+    ),
+    labelMedium = TextStyle(
+        fontFamily = OpenSans,
+        fontWeight = FontWeight.W400,
+        fontSize = 12.sp,
+    ),
+    labelSmall = TextStyle(
+        fontFamily = OpenSans,
+        fontWeight = FontWeight.W400,
+        fontSize = 11.sp,
     )
 )
