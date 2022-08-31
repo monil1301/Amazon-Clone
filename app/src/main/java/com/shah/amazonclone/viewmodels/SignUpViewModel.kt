@@ -25,7 +25,7 @@ class SignUpViewModel(application: AmazonCloneApplication) : ViewModel() {
     // Private variables
     private val apiBuilder = ApiBuilder()
     private val repository =
-        SignUpRepository(apiBuilder.buildApi(SignUpApi::class.java), application)
+        SignUpRepository(apiBuilder.buildApi(SignUpApi::class.java, application), application)
 
     // Public variables
     var signUpFieldError by mutableStateOf(SignUpFieldError())
