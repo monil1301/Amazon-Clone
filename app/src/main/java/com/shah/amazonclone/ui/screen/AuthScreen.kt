@@ -17,10 +17,10 @@ import com.shah.amazonclone.R
 import com.shah.amazonclone.enums.AuthState
 import com.shah.amazonclone.models.auth.LoginDetails
 import com.shah.amazonclone.models.auth.SignUpDetails
-import com.shah.amazonclone.ui.component.auth.LoginView
-import com.shah.amazonclone.ui.component.auth.SignUpView
-import com.shah.amazonclone.ui.component.common.A_Column
-import com.shah.amazonclone.ui.component.common.A_RadioButton
+import com.shah.amazonclone.ui.components.auth.LoginView
+import com.shah.amazonclone.ui.components.auth.SignUpView
+import com.shah.amazonclone.ui.components.common.A_Column
+import com.shah.amazonclone.ui.components.common.A_RadioButton
 import com.shah.amazonclone.ui.theme.DarkGray
 
 @Composable

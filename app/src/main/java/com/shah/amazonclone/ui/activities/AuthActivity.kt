@@ -1,4 +1,4 @@
-package com.shah.amazonclone.ui.activity
+package com.shah.amazonclone.ui.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -31,4 +31,13 @@ object Constants {
             const val login = "api/signIn"
         }
     }
+
+    object DataStore {
+        const val name = "userDataStore"
+
+        object Keys {
+            const val authToken = "authToken"
+            const val userName = "userName"
+        }
+    }
 }

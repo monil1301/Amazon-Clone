@@ -67,4 +67,8 @@ dependencies {
     def retrofitVersion = '2.9.0'
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // Jetpack dataStore
+    def dataStoreVersion = '1.0.0'
+    implementation "androidx.datastore:datastore-preferences:$dataStoreVersion"
 }

@@ -1,5 +1,6 @@
-package com.shah.amazonclone.ui.component.auth
+package com.shah.amazonclone.ui.components.auth
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -22,14 +23,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.shah.amazonclone.R
+import com.shah.amazonclone.application.AmazonCloneApplication
 import com.shah.amazonclone.models.auth.SignUpDetails
 import com.shah.amazonclone.models.common.getA_ButtonConfig
 import com.shah.amazonclone.models.common.getA_TextConfig
-import com.shah.amazonclone.ui.component.common.A_Button
-import com.shah.amazonclone.ui.component.common.A_Column
-import com.shah.amazonclone.ui.component.common.A_OutlinedTextField
+import com.shah.amazonclone.ui.activities.MainActivity
+import com.shah.amazonclone.ui.components.common.A_Button
+import com.shah.amazonclone.ui.components.common.A_Column
+import com.shah.amazonclone.ui.components.common.A_OutlinedTextField
 import com.shah.amazonclone.ui.theme.AmazonCloneTheme
 import com.shah.amazonclone.ui.theme.OpenSans
+import com.shah.amazonclone.utilities.helpers.startActivityAndFinishCurrent
 import com.shah.amazonclone.viewmodels.SignUpViewModel
 
 /**
@@ -41,10 +45,11 @@ fun SignUpView(
     modifier: Modifier = Modifier,
     signUpDetails: SignUpDetails
 ) {
-    val signUpViewModel = remember { SignUpViewModel() }
     val focusManager = LocalFocusManager.current
     var isAuthenticating by remember { mutableStateOf(false) }
     val context = LocalContext.current
+    val application by lazy { context.applicationContext as AmazonCloneApplication }
+    val signUpViewModel = remember { SignUpViewModel(application) }
 
     fun onSignUpButtonClicked() {
         val isSignUpDetailsValid = signUpViewModel.validateSignUpDetails(signUpDetails)
@@ -56,7 +61,7 @@ fun SignUpView(
                 isAuthenticating = false
 
                 if (isSuccess) {
-                    // TODO save token and login
+                    context.startActivityAndFinishCurrent(Intent(context, MainActivity::class.java))
                 }
 
                 Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()

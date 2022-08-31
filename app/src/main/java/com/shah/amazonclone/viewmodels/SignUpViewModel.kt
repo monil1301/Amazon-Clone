@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.shah.amazonclone.application.AmazonCloneApplication
 import com.shah.amazonclone.models.auth.SignUpDetails
 import com.shah.amazonclone.models.auth.SignUpFieldError
 import com.shah.amazonclone.network.SignUpApi
@@ -12,19 +13,19 @@ import com.shah.amazonclone.network.base.ApiBuilder
 import com.shah.amazonclone.network.base.ResponseResource
 import com.shah.amazonclone.repositories.SignUpRepository
 import com.shah.amazonclone.utilities.helpers.Constants
-import com.shah.amazonclone.utilities.helpers.logD
+import com.shah.amazonclone.utilities.helpers.ifLet
 import kotlinx.coroutines.launch
 
 /**
  * Created by Monil Shah on 06/08/22.
  */
 
-class SignUpViewModel: ViewModel() {
+class SignUpViewModel(application: AmazonCloneApplication) : ViewModel() {
 
     // Private variables
     private val apiBuilder = ApiBuilder()
     private val repository =
-        SignUpRepository(apiBuilder.buildApi(SignUpApi::class.java))
+        SignUpRepository(apiBuilder.buildApi(SignUpApi::class.java), application)
 
     // Public variables
     var signUpFieldError by mutableStateOf(SignUpFieldError())
@@ -34,15 +35,26 @@ class SignUpViewModel: ViewModel() {
         viewModelScope.launch {
             when (val response = repository.signUp(signUpDetails)) {
                 is ResponseResource.Failure -> {
-                    logD(message = "Sign up failed")
                     onResponse(false, response.errorMessage ?: "Sign up failed")
                 }
                 is ResponseResource.Success -> {
-                    logD(message = "Successful Sign up")
+                    ifLet(response.value.token, response.value.name) { (token, name) ->
+                        saveStringToDataStore(
+                            hashMapOf(
+                                Constants.DataStore.Keys.authToken to token,
+                                Constants.DataStore.Keys.userName to name
+                            )
+                        )
+                    }
                     onResponse(true, "Successful Sign up")
                 }
             }
         }
+
+    // DataStore Methods
+    private fun saveStringToDataStore(data: HashMap<String, String>) = viewModelScope.launch {
+        repository.saveStringToDataStore(data)
+    }
 
     // Validation Methods
     fun validateSignUpDetails(signUpDetails: SignUpDetails): Boolean {

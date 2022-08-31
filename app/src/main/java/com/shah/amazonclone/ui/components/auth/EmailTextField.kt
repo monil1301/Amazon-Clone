@@ -1,4 +1,4 @@
-package com.shah.amazonclone.ui.component.auth
+package com.shah.amazonclone.ui.components.auth
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions
@@ -13,7 +13,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import com.shah.amazonclone.R
 import com.shah.amazonclone.models.auth.LoginDetails
 import com.shah.amazonclone.models.auth.LoginFieldError
-import com.shah.amazonclone.ui.component.common.A_OutlinedTextField
+import com.shah.amazonclone.ui.components.common.A_OutlinedTextField
 
 /**
  * Created by Monil Shah on 31/08/22.
