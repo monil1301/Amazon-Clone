@@ -33,7 +33,8 @@ private val DarkColorScheme = darkColorScheme(
     onSecondaryContainer = Color.Black,
     background = Color.White,
     onBackground = Color.Black,
-    error = FireBrickRed
+    error = FireBrickRed,
+    outline = DarkGray
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -47,7 +48,8 @@ private val LightColorScheme = lightColorScheme(
     onSecondaryContainer = Color.Black,
     background = Color.White,
     onBackground = Color.Black,
-    error = FireBrickRed
+    error = FireBrickRed,
+    outline = DarkGray
 )
 
 @Composable

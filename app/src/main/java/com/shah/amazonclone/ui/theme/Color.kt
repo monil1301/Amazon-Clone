@@ -18,3 +18,6 @@ val VikingBlue = Color(0xFF48A3C6)
 
 // Red
 val FireBrickRed = Color(0xFFBA1A1A)
+
+// Gray
+val DarkGray = Color(0xFF9E9E9E)
