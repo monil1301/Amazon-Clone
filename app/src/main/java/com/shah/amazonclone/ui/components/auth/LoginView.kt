@@ -21,7 +21,7 @@ import com.shah.amazonclone.application.AmazonCloneApplication
 import com.shah.amazonclone.models.auth.LoginDetails
 import com.shah.amazonclone.models.common.getA_ButtonConfig
 import com.shah.amazonclone.models.common.getA_TextConfig
-import com.shah.amazonclone.ui.activities.MainActivity
+import com.shah.amazonclone.ui.activities.RootBottomTabBarActivity
 import com.shah.amazonclone.ui.components.common.A_Button
 import com.shah.amazonclone.ui.components.common.A_Column
 import com.shah.amazonclone.ui.theme.AmazonCloneTheme
@@ -54,7 +54,12 @@ fun LoginView(
                 isAuthenticating = false
 
                 if (isSuccess) {
-                    context.startActivityAndFinishCurrent(Intent(context, MainActivity::class.java))
+                    context.startActivityAndFinishCurrent(
+                        Intent(
+                            context,
+                            RootBottomTabBarActivity::class.java
+                        )
+                    )
                 }
 
                 Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()

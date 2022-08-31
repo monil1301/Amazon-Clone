@@ -26,7 +26,7 @@ class RoutesActivity : ComponentActivity() {
             ) {
                 Intent(this@RoutesActivity, AuthActivity::class.java)
             } else {
-                Intent(this@RoutesActivity, MainActivity::class.java)
+                Intent(this@RoutesActivity, RootBottomTabBarActivity::class.java)
             }
         }
     }

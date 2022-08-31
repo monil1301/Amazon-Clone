@@ -36,7 +36,7 @@
             android:theme="@style/Theme.AmazonClone"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name=".ui.activities.RootBottomTabBarActivity"
             android:exported="false"
             android:theme="@style/Theme.AmazonClone" />
     </application>
