@@ -2,6 +2,7 @@ package com.shah.amazonclone.ui.theme
 
 import android.app.Activity
 import android.os.Build
+import android.view.Window
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -15,6 +16,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 
 /**
  * Created by Monil Shah on 25/06/22.
@@ -30,7 +32,8 @@ private val DarkColorScheme = darkColorScheme(
     secondaryContainer = SupernovaYellow,
     onSecondaryContainer = Color.Black,
     background = Color.White,
-    onBackground = Color.Black
+    onBackground = Color.Black,
+    error = FireBrickRed
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -43,7 +46,8 @@ private val LightColorScheme = lightColorScheme(
     secondaryContainer = SupernovaYellow,
     onSecondaryContainer = Color.Black,
     background = Color.White,
-    onBackground = Color.Black
+    onBackground = Color.Black,
+    error = FireBrickRed
 )
 
 @Composable

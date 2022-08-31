@@ -1,4 +1,4 @@
-package com.shah.amazonclone.ui.components.common
+package com.shah.amazonclone.ui.component.common
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

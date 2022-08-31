@@ -15,3 +15,6 @@ val SupernovaYellow = Color(0xFFFCBD34)
 // Blue
 val DenimBlue = Color(0xFF146EB4)
 val VikingBlue = Color(0xFF48A3C6)
+
+// Red
+val FireBrickRed = Color(0xFFBA1A1A)
