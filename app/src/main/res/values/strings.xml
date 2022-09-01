@@ -18,4 +18,12 @@
     <string name="invalid_email">Invalid Email Address</string>
     <string name="empty_password">Password cannot be empty</string>
     <string name="password_minimum_characters">Password should at-least be 4 characters</string>
+
+    // Account
+    <string name="hello_user_name">Hello, <b>%1$s</b></string>
+    <string name="your_orders">Your Orders</string>
+    <string name="turn_seller">Turn Seller</string>
+    <string name="logout">Log Out</string>
+    <string name="your_wish_list">Your Wish List</string>
+    <string name="see_all">See all</string>
 </resources>
