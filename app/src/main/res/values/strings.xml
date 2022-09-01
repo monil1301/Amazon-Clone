@@ -21,4 +21,9 @@
 
     // Account
     <string name="hello_user_name">Hello, <b>%1$s</b></string>
+    <string name="your_orders">Your Orders</string>
+    <string name="turn_seller">Turn Seller</string>
+    <string name="logout">Log Out</string>
+    <string name="your_wish_list">Your Wish List</string>
+    <string name="see_all">See all</string>
 </resources>

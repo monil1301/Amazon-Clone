@@ -51,4 +51,11 @@ class UserPreferences(private val context: Context) {
             null
         }
     }
+
+    // To clear all the data stored in data store
+    suspend fun clearDataStore() {
+        context.dataStore.edit { preferences ->
+            preferences.clear()
+        }
+    }
 }

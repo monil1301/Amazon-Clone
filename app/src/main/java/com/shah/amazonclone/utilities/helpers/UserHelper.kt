@@ -1,7 +1,9 @@
 package com.shah.amazonclone.utilities.helpers
 
+import android.content.Intent
 import com.shah.amazonclone.application.AmazonCloneApplication
 import com.shah.amazonclone.models.UserInfo
+import com.shah.amazonclone.ui.activities.AuthActivity
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -18,5 +20,15 @@ object UserHelper {
                 name = application.userPreferences?.getString(Constants.DataStore.Keys.userName),
             )
         }
+    }
+
+    fun logout(application: AmazonCloneApplication) {
+        runBlocking { application.userPreferences?.clearDataStore() }
+        application.applicationContext.startActivityAndFinishCurrent(
+            Intent(
+                application.applicationContext,
+                AuthActivity::class.java
+            )
+        )
     }
 }
