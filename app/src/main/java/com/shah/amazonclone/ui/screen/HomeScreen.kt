@@ -1,7 +1,8 @@
 package com.shah.amazonclone.ui.screen
 
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import com.shah.amazonclone.ui.components.common.A_Text
+import com.shah.amazonclone.ui.components.topbar.HomeScreenTopBar
 
 /**
  * Created by Monil Shah on 01/09/22.
@@ -9,5 +10,11 @@ import com.shah.amazonclone.ui.components.common.A_Text
 
 @Composable
 fun HomeScreen() {
-    A_Text(text = "Home Screen")
+    Scaffold(
+        topBar = {
+            HomeScreenTopBar()
+        }
+    ) {
+
+    }
 }

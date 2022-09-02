@@ -26,4 +26,7 @@
     <string name="logout">Log Out</string>
     <string name="your_wish_list">Your Wish List</string>
     <string name="see_all">See all</string>
+
+    // Home
+    <string name="search_amazon">Search Amazon.in</string>
 </resources>
