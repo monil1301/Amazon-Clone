@@ -14,7 +14,7 @@ import com.shah.amazonclone.utilities.helpers.BottomBarScreen
  */
 
 @Composable
-fun BottomNavGraph(navController: NavHostController) {
+fun UserBottomNavGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = BottomBarScreen.Home.route) {
         composable(route = BottomBarScreen.Home.route) {
             HomeScreen()

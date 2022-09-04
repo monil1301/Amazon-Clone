@@ -39,6 +39,7 @@ object Constants {
             const val authToken = "authToken"
             const val userName = "userName"
             const val address = "address"
+            const val type = "type"
         }
     }
 
@@ -47,12 +48,16 @@ object Constants {
             const val home = "home"
             const val account = "account"
             const val cart = "cart"
+            const val analytics = "analytics"
+            const val orders = "orders"
         }
 
         object Title {
             const val home = "Home"
             const val account = "Account"
             const val cart = "Cart"
+            const val analytics = "Analytics"
+            const val orders = "Orders"
         }
     }
 

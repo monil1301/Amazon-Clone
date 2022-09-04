@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.shah.amazonclone.application.AmazonCloneApplication
+import com.shah.amazonclone.enums.UserType
+import com.shah.amazonclone.ui.screen.AdminRootBottomTabBarScreen
 import com.shah.amazonclone.ui.screen.RootBottomTabBarScreen
 import com.shah.amazonclone.ui.theme.AmazonCloneTheme
 import com.shah.amazonclone.utilities.helpers.UserHelper
@@ -16,7 +18,10 @@ class RootBottomTabBarActivity : ComponentActivity() {
         UserHelper.getUserDetails(application as AmazonCloneApplication)
         setContent {
             AmazonCloneTheme {
-                RootBottomTabBarScreen()
+                if (UserHelper.user?.type == UserType.ADMIN)
+                    AdminRootBottomTabBarScreen()
+                else
+                    RootBottomTabBarScreen()
             }
         }
     }
