@@ -5,6 +5,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import com.shah.amazonclone.ui.components.bottombar.AdminBottomBar
+import com.shah.amazonclone.ui.components.topbar.AdminTopBar
 import com.shah.amazonclone.ui.navgraph.AdminBottomNavGraph
 
 /**
@@ -19,6 +20,9 @@ fun AdminRootBottomTabBarScreen() {
     Scaffold(
         bottomBar = {
             AdminBottomBar(navController = navController)
+        },
+        topBar = {
+            AdminTopBar()
         }
     ) {
         AdminBottomNavGraph(navController = navController)

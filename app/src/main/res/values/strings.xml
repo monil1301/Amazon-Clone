@@ -38,4 +38,7 @@
     <string name="appliances">Appliances</string>
     <string name="books">Books</string>
     <string name="fashion">Fashion</string>
+
+    // Admin
+    <string name="admin">Admin</string>
 </resources>
