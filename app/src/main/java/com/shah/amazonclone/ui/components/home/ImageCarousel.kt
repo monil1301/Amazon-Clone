@@ -23,7 +23,7 @@ fun ImageCarousel() {
     HorizontalPager(
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp),
+            .height(170.dp),
         state = state,
         count = Constants.Resources.carouselImages.size
     ) { index ->

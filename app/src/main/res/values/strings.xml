@@ -30,6 +30,7 @@
     // Home
     <string name="search_amazon">Search Amazon.in</string>
     <string name="deliver_to_user_address">Deliver to %1$s - %2$s</string>
+    <string name="deal_of_the_day">Deal of the day</string>
 
     // Product Categories
     <string name="mobiles">Mobiles</string>
