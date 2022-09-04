@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.shah.amazonclone.ui.components.common.A_Column
 import com.shah.amazonclone.ui.components.home.AddressBar
+import com.shah.amazonclone.ui.components.home.ImageCarousel
 import com.shah.amazonclone.ui.components.home.TopCategories
 import com.shah.amazonclone.ui.components.topbar.HomeScreenTopBar
 
@@ -28,6 +29,7 @@ fun HomeScreen() {
         ) {
             AddressBar()
             TopCategories()
+            ImageCarousel()
         }
     }
 }
