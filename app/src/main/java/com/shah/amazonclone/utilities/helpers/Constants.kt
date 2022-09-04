@@ -38,6 +38,7 @@ object Constants {
         object Keys {
             const val authToken = "authToken"
             const val userName = "userName"
+            const val address = "address"
         }
     }
 

@@ -5,5 +5,6 @@ package com.shah.amazonclone.models
  */
 
 data class UserInfo(
-    val name: String? = null
+    val name: String? = null,
+    val address: String? = "19/B Vrujdham, behind bavadiya hospital, Una - 362560"
 )

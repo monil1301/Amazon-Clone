@@ -18,6 +18,7 @@ object UserHelper {
         user = runBlocking {
             UserInfo(
                 name = application.userPreferences?.getString(Constants.DataStore.Keys.userName),
+                address = application.userPreferences?.getString(Constants.DataStore.Keys.address),
             )
         }
     }

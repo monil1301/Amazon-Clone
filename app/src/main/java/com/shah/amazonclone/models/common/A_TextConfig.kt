@@ -8,6 +8,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -35,6 +36,7 @@ data class A_TextConfig(
     val drawableSize: Dp,
     val drawableTint: ColorFilter?,
     val maxLines: Int,
+    val overflow: TextOverflow
 )
 
 @Composable
@@ -53,6 +55,7 @@ fun getA_TextConfig(
     drawableSize: Dp = 20.dp,
     drawableTint: ColorFilter? = null,
     maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = TextOverflow.Clip
 ): A_TextConfig = A_TextConfig(
     fontFamily,
     fontSize,
@@ -68,4 +71,5 @@ fun getA_TextConfig(
     drawableSize,
     drawableTint,
     maxLines,
+    overflow
 )
