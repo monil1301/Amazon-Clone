@@ -1,9 +1,7 @@
 package com.shah.amazonclone.utilities.helpers
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.Person
-import androidx.compose.material.icons.outlined.ShoppingCart
+import androidx.compose.material.icons.outlined.*
 import androidx.compose.ui.graphics.vector.ImageVector
 
 /**
@@ -31,5 +29,17 @@ sealed class BottomBarScreen(
         route = Constants.BottomNavBar.Route.cart,
         title = Constants.BottomNavBar.Title.cart,
         icon = Icons.Outlined.ShoppingCart
+    )
+
+    object Analytics : BottomBarScreen(
+        route = Constants.BottomNavBar.Route.analytics,
+        title = Constants.BottomNavBar.Title.analytics,
+        icon = Icons.Outlined.Analytics
+    )
+
+    object Orders : BottomBarScreen(
+        route = Constants.BottomNavBar.Route.orders,
+        title = Constants.BottomNavBar.Title.orders,
+        icon = Icons.Outlined.Inventory
     )
 }

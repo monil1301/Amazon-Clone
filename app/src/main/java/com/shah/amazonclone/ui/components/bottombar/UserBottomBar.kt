@@ -13,7 +13,7 @@ import com.shah.amazonclone.utilities.helpers.BottomBarScreen
  */
 
 @Composable
-fun BottomBar(navController: NavHostController) {
+fun UserBottomBar(navController: NavHostController) {
     val screens = listOf(
         BottomBarScreen.Home,
         BottomBarScreen.Account,

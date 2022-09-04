@@ -40,13 +40,15 @@ class LoginViewModel(application: AmazonCloneApplication) : ViewModel() {
                     ifLet(
                         response.value.token,
                         response.value.name,
-                        response.value.address
-                    ) { (token, name, address) ->
+                        response.value.address,
+                        response.value.type
+                    ) { (token, name, address, userType) ->
                         saveStringToDataStore(
                             hashMapOf(
                                 Constants.DataStore.Keys.authToken to token,
                                 Constants.DataStore.Keys.userName to name,
-                                Constants.DataStore.Keys.address to address
+                                Constants.DataStore.Keys.address to address,
+                                Constants.DataStore.Keys.type to userType,
                             )
                         )
                     }
