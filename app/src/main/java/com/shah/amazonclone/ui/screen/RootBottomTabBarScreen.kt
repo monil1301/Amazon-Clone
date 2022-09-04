@@ -1,8 +1,10 @@
 package com.shah.amazonclone.ui.screen
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.shah.amazonclone.ui.components.bottombar.UserBottomBar
 import com.shah.amazonclone.ui.navgraph.UserBottomNavGraph
@@ -20,7 +22,10 @@ fun RootBottomTabBarScreen() {
         bottomBar = {
             UserBottomBar(navController = navController)
         }
-    ) {
-        UserBottomNavGraph(navController = navController)
+    ) { paddingValues ->
+        UserBottomNavGraph(
+            navController = navController,
+            modifier = Modifier.padding(paddingValues)
+        )
     }
 }

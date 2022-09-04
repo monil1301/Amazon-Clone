@@ -7,7 +7,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.shah.amazonclone.ui.components.common.A_Column
 import com.shah.amazonclone.ui.components.home.AddressBar
 import com.shah.amazonclone.ui.components.home.DealOfTheDayView
@@ -30,14 +29,12 @@ fun HomeScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(paddingValues)
-                .padding(bottom = 50.dp)
                 .verticalScroll(state = rememberScrollState()),
         ) {
             AddressBar()
             TopCategories()
             ImageCarousel()
             DealOfTheDayView()
-
         }
     }
 }
