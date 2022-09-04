@@ -80,4 +80,7 @@ dependencies {
     // Glide for compose
     def glideVersion = '1.3.6'
     implementation "com.github.skydoves:landscapist-glide:$glideVersion"
+
+    def pagerVersion = "0.22.0-rc"
+    implementation "com.google.accompanist:accompanist-pager:$pagerVersion"
 }

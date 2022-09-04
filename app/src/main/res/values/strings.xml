@@ -26,4 +26,16 @@
     <string name="logout">Log Out</string>
     <string name="your_wish_list">Your Wish List</string>
     <string name="see_all">See all</string>
+
+    // Home
+    <string name="search_amazon">Search Amazon.in</string>
+    <string name="deliver_to_user_address">Deliver to %1$s - %2$s</string>
+    <string name="deal_of_the_day">Deal of the day</string>
+
+    // Product Categories
+    <string name="mobiles">Mobiles</string>
+    <string name="essentials">Essentials</string>
+    <string name="appliances">Appliances</string>
+    <string name="books">Books</string>
+    <string name="fashion">Fashion</string>
 </resources>

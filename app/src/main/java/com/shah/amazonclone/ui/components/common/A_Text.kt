@@ -40,6 +40,7 @@ fun A_Text(
             color = config.color,
             textDecoration = config.textDecoration,
             maxLines = config.maxLines,
+            overflow = config.overflow
         )
         if (config.drawableResource != null && config.drawablePosition == ViewPosition.End) {
             A_DrawableView(config.drawablePadding,

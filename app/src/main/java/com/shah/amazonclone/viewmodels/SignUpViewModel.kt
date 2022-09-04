@@ -38,11 +38,16 @@ class SignUpViewModel(application: AmazonCloneApplication) : ViewModel() {
                     onResponse(false, response.errorMessage ?: "Sign up failed")
                 }
                 is ResponseResource.Success -> {
-                    ifLet(response.value.token, response.value.name) { (token, name) ->
+                    ifLet(
+                        response.value.token,
+                        response.value.name,
+                        response.value.address
+                    ) { (token, name, address) ->
                         saveStringToDataStore(
                             hashMapOf(
                                 Constants.DataStore.Keys.authToken to token,
-                                Constants.DataStore.Keys.userName to name
+                                Constants.DataStore.Keys.userName to name,
+                                Constants.DataStore.Keys.address to address
                             )
                         )
                     }

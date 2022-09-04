@@ -3,15 +3,14 @@ package com.shah.amazonclone.ui.components.common
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,7 +26,10 @@ fun A_OutlinedTextField(
     modifier: Modifier = Modifier,
     label: String,
     text: String = "",
+    shouldShouldLabel: Boolean = true,
     textStyle: TextStyle = MaterialTheme.typography.displayMedium,
+    startIcon: ImageVector? = null,
+    iconDescription: String? = null,
     singleLine: Boolean = true,
     maxCharacterLength: Int? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions(),
@@ -40,6 +42,28 @@ fun A_OutlinedTextField(
 ) {
     var textValue by remember { mutableStateOf(text) }
 
+    val leadingIcon: @Composable (() -> Unit)? = if (startIcon != null) {
+        {
+            Icon(
+                modifier = Modifier.size(18.dp),
+                imageVector = startIcon,
+                contentDescription = iconDescription
+            )
+        }
+    } else null
+
+    val textFieldLabel: @Composable (() -> Unit)? = if (shouldShouldLabel) {
+        {
+            Text(text = label)
+        }
+    } else null
+
+    val placeholder: @Composable (() -> Unit)? = if (!shouldShouldLabel) {
+        {
+            Text(text = label, style = textStyle)
+        }
+    } else null
+
     A_Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(2.dp)
@@ -48,9 +72,8 @@ fun A_OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
             value = if (isEnabled) textValue else text,
             textStyle = textStyle,
-            label = {
-                Text(text = label)
-            },
+            label = textFieldLabel,
+            placeholder = placeholder,
             onValueChange = { newTextValue ->
                 textValue = if (maxCharacterLength != null) {
                     newTextValue.take(maxCharacterLength)
@@ -60,6 +83,7 @@ fun A_OutlinedTextField(
 
                 onValueChanged(textValue.trim())
             },
+            leadingIcon = leadingIcon,
             isError = isError,
             singleLine = singleLine,
             readOnly = isReadOnly,
