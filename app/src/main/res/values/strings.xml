@@ -30,4 +30,11 @@
     // Home
     <string name="search_amazon">Search Amazon.in</string>
     <string name="deliver_to_user_address">Deliver to %1$s - %2$s</string>
+
+    // Product Categories
+    <string name="mobiles">Mobiles</string>
+    <string name="essentials">Essentials</string>
+    <string name="appliances">Appliances</string>
+    <string name="books">Books</string>
+    <string name="fashion">Fashion</string>
 </resources>
