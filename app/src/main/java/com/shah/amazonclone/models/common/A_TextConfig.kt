@@ -1,9 +1,9 @@
 package com.shah.amazonclone.models.common
 
-import androidx.annotation.DrawableRes
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -29,12 +29,12 @@ data class A_TextConfig(
     val textAlign: TextAlign?,
     val textDecoration: TextDecoration?,
     val color: Color,
-    val drawablePosition: ViewPosition,
-    @DrawableRes val drawableResource: Int?,
-    val drawableDescription: String?,
-    val drawablePadding: Dp,
-    val drawableSize: Dp,
-    val drawableTint: ColorFilter?,
+    val iconPosition: ViewPosition,
+    val icon: ImageVector?,
+    val iconDescription: String?,
+    val iconPadding: Dp,
+    val iconSize: Dp,
+    val iconTint: Color,
     val maxLines: Int,
     val overflow: TextOverflow
 )
@@ -48,12 +48,12 @@ fun getA_TextConfig(
     textAlign: TextAlign? = null,
     textDecoration: TextDecoration? = null,
     color: Color = Color.Black,
-    drawablePosition: ViewPosition = ViewPosition.Start,
-    @DrawableRes drawableResource: Int? = null,
-    drawableDescription: String? = null,
-    drawablePadding: Dp = 0.dp,
-    drawableSize: Dp = 20.dp,
-    drawableTint: ColorFilter? = null,
+    iconPosition: ViewPosition = ViewPosition.Start,
+    icon: ImageVector? = null,
+    iconDescription: String? = null,
+    iconPadding: Dp = 0.dp,
+    iconSize: Dp = 20.dp,
+    iconTint: Color = MaterialTheme.colorScheme.onBackground,
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Clip
 ): A_TextConfig = A_TextConfig(
@@ -64,12 +64,12 @@ fun getA_TextConfig(
     textAlign,
     textDecoration,
     color,
-    drawablePosition,
-    drawableResource,
-    drawableDescription,
-    drawablePadding,
-    drawableSize,
-    drawableTint,
+    iconPosition,
+    icon,
+    iconDescription,
+    iconPadding,
+    iconSize,
+    iconTint,
     maxLines,
     overflow
 )

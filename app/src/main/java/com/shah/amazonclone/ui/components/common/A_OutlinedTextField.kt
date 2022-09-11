@@ -1,9 +1,6 @@
 package com.shah.amazonclone.ui.components.common
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -14,8 +11,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.shah.amazonclone.R
+import com.shah.amazonclone.ui.theme.CapeCodGray
 
 /**
  * Created by Monil Shah on 28/08/22.
@@ -29,6 +28,7 @@ fun A_OutlinedTextField(
     shouldShouldLabel: Boolean = true,
     textStyle: TextStyle = MaterialTheme.typography.displayMedium,
     startIcon: ImageVector? = null,
+    endIcon: ImageVector? = null,
     iconDescription: String? = null,
     singleLine: Boolean = true,
     maxCharacterLength: Int? = null,
@@ -38,6 +38,7 @@ fun A_OutlinedTextField(
     errorMessage: String? = null,
     isReadOnly: Boolean = false,
     isEnabled: Boolean = true,
+    fieldHeight: Dp? = null,
     onValueChanged: (String) -> Unit,
 ) {
     var textValue by remember { mutableStateOf(text) }
@@ -47,6 +48,16 @@ fun A_OutlinedTextField(
             Icon(
                 modifier = Modifier.size(18.dp),
                 imageVector = startIcon,
+                contentDescription = iconDescription
+            )
+        }
+    } else null
+
+    val trailingIcon: @Composable (() -> Unit)? = if (endIcon != null) {
+        {
+            Icon(
+                modifier = Modifier.size(18.dp),
+                imageVector = endIcon,
                 contentDescription = iconDescription
             )
         }
@@ -68,8 +79,11 @@ fun A_OutlinedTextField(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(2.dp)
     ) {
+        val fieldModifier = Modifier.fillMaxWidth()
         OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = if (fieldHeight != null) {
+                fieldModifier.height(fieldHeight)
+            } else fieldModifier,
             value = if (isEnabled) textValue else text,
             textStyle = textStyle,
             label = textFieldLabel,
@@ -84,6 +98,7 @@ fun A_OutlinedTextField(
                 onValueChanged(textValue.trim())
             },
             leadingIcon = leadingIcon,
+            trailingIcon = trailingIcon,
             isError = isError,
             singleLine = singleLine,
             readOnly = isReadOnly,
@@ -95,6 +110,9 @@ fun A_OutlinedTextField(
                 errorBorderColor = MaterialTheme.colorScheme.error,
                 errorLabelColor = MaterialTheme.colorScheme.error,
                 errorCursorColor = MaterialTheme.colorScheme.error,
+                disabledBorderColor = CapeCodGray,
+                disabledLabelColor = CapeCodGray,
+                disabledTextColor = CapeCodGray
             ),
         )
 
