@@ -1,4 +1,4 @@
-package com.shah.amazonclone.utilities.helpers
+package com.shah.amazonclone.utilities.utils
 
 /**
  * Created by Monil Shah on 31/08/22.

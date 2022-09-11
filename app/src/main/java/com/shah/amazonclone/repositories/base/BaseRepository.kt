@@ -1,7 +1,7 @@
 package com.shah.amazonclone.repositories.base
 
 import com.shah.amazonclone.network.base.ResponseResource
-import com.shah.amazonclone.utilities.helpers.logD
+import com.shah.amazonclone.utilities.utils.logD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException

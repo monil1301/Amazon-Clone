@@ -20,7 +20,7 @@ import com.shah.amazonclone.models.common.getA_TextConfig
 import com.shah.amazonclone.ui.components.common.A_Row
 import com.shah.amazonclone.ui.components.common.A_Text
 import com.shah.amazonclone.utilities.helpers.UserHelper
-import com.shah.amazonclone.utilities.helpers.ifLet
+import com.shah.amazonclone.utilities.utils.ifLet
 
 /**
  * Created by Monil Shah on 02/09/22.
