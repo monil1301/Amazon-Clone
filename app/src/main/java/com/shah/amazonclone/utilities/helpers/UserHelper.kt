@@ -5,6 +5,7 @@ import com.shah.amazonclone.application.AmazonCloneApplication
 import com.shah.amazonclone.enums.UserType
 import com.shah.amazonclone.models.UserInfo
 import com.shah.amazonclone.ui.activities.AuthActivity
+import com.shah.amazonclone.utilities.utils.startActivityAndFinishCurrent
 import kotlinx.coroutines.runBlocking
 
 /**

@@ -31,7 +31,7 @@ import com.shah.amazonclone.models.common.getA_TextConfig
 import com.shah.amazonclone.ui.components.common.A_Column
 import com.shah.amazonclone.ui.components.common.A_Text
 import com.shah.amazonclone.ui.components.home.ImagesCarousel
-import com.shah.amazonclone.utilities.helpers.checkPermission
+import com.shah.amazonclone.utilities.utils.checkPermission
 
 
 /**
@@ -39,7 +39,7 @@ import com.shah.amazonclone.utilities.helpers.checkPermission
  */
 
 @Composable
-fun AddImagesView() {
+fun AddImagesView(onSelect: (Uri) -> Unit) {
 
     val stroke = Stroke(
         width = 2f,
@@ -52,6 +52,7 @@ fun AddImagesView() {
         rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let {
                 selectedImages.add(it)
+                onSelect(it)
             }
         }
 

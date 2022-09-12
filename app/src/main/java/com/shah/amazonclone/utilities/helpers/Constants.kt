@@ -27,8 +27,12 @@ object Constants {
         }
 
         object Path {
-            const val signUp = "api/signUp"
-            const val login = "api/signIn"
+            private const val api = "api"
+            const val signUp = "$api/signUp"
+            const val login = "$api/signIn"
+
+            private const val admin = "admin"
+            const val addProduct = "$admin/addProduct"
         }
     }
 

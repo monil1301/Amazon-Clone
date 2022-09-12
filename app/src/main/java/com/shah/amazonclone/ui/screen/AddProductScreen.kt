@@ -1,5 +1,7 @@
 package com.shah.amazonclone.ui.screen
 
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -10,8 +12,10 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
@@ -20,12 +24,17 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.shah.amazonclone.R
+import com.shah.amazonclone.application.AmazonCloneApplication
+import com.shah.amazonclone.models.product.Product
 import com.shah.amazonclone.ui.components.addproducts.AddImagesView
 import com.shah.amazonclone.ui.components.common.A_Button
 import com.shah.amazonclone.ui.components.common.A_Column
 import com.shah.amazonclone.ui.components.common.A_DropdownMenu
 import com.shah.amazonclone.ui.components.common.A_OutlinedTextField
 import com.shah.amazonclone.ui.components.topbar.TopBarWithBackButton
+import com.shah.amazonclone.utilities.helpers.CloudinaryHelper
+import com.shah.amazonclone.utilities.utils.logD
+import com.shah.amazonclone.viewmodels.AddProductViewModel
 
 /**
  * Created by Monil Shah on 05/09/22.
@@ -33,11 +42,13 @@ import com.shah.amazonclone.ui.components.topbar.TopBarWithBackButton
 
 @Composable
 fun AddProductScreen(onBackPress: () -> Unit) {
-    var productName = ""
-    var description = ""
-    var price = ""
-    var quality = ""
-    var category = ""
+
+    val context = LocalContext.current
+    val application by lazy { context.applicationContext as AmazonCloneApplication }
+    val productViewModel = remember { AddProductViewModel(application) }
+
+    val product = Product()
+    val selectedImages = arrayListOf<Uri>()
 
     val focusManager = LocalFocusManager.current
 
@@ -56,7 +67,9 @@ fun AddProductScreen(onBackPress: () -> Unit) {
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            AddImagesView()
+            AddImagesView { uri ->
+                selectedImages.add(uri)
+            }
 
             A_OutlinedTextField(
                 label = stringResource(id = R.string.product_name),
@@ -70,7 +83,7 @@ fun AddProductScreen(onBackPress: () -> Unit) {
                     }
                 )
             ) {
-                productName = it
+                product.name = it
             }
 
             A_OutlinedTextField(
@@ -85,7 +98,7 @@ fun AddProductScreen(onBackPress: () -> Unit) {
                     capitalization = KeyboardCapitalization.Sentences
                 ),
             ) {
-                description = it
+                product.description = it
             }
 
             A_OutlinedTextField(
@@ -100,7 +113,7 @@ fun AddProductScreen(onBackPress: () -> Unit) {
                     }
                 )
             ) {
-                price = it
+                product.price = it.toFloat()
             }
 
             A_OutlinedTextField(
@@ -115,7 +128,7 @@ fun AddProductScreen(onBackPress: () -> Unit) {
                     }
                 )
             ) {
-                quality = it
+                product.quality = it.toInt()
             }
 
             A_DropdownMenu(
@@ -124,14 +137,38 @@ fun AddProductScreen(onBackPress: () -> Unit) {
                 hasError = false,
                 errorMessage = "",
             ) {
-                category = it
+                product.category = it
             }
 
             A_Button(
                 modifier = Modifier.fillMaxWidth(),
                 title = stringResource(id = R.string.sell)
             ) {
+                uploadImagesToCloudinary(selectedImages) {
+                    product.images = it
+                    productViewModel.addProduct(product) { isSuccess, message ->
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    }
+}
 
+private fun uploadImagesToCloudinary(
+    selectedImages: ArrayList<Uri>,
+    onComplete: (ArrayList<String>) -> Unit
+) {
+    val uploadedImageUrlList = arrayListOf<String>()
+    selectedImages.forEach { uri ->
+        CloudinaryHelper.uploadImage(uri) { isSuccess, imageUrl, errorMessage ->
+            if (isSuccess) {
+                imageUrl?.let { url -> uploadedImageUrlList.add(url) }
+
+                if (uploadedImageUrlList.size == selectedImages.size)
+                    onComplete(uploadedImageUrlList)
+            } else {
+                logD(message = errorMessage.toString())
             }
         }
     }
