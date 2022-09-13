@@ -146,7 +146,7 @@ fun AddProductScreen(onBackPress: () -> Unit) {
             ) {
                 uploadImagesToCloudinary(selectedImages) {
                     product.images = it
-                    productViewModel.addProduct(product) { isSuccess, message ->
+                    productViewModel.addProduct(product) { _, message ->
                         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                     }
                 }
