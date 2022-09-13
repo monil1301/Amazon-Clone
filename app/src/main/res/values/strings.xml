@@ -38,7 +38,25 @@
     <string name="appliances">Appliances</string>
     <string name="books">Books</string>
     <string name="fashion">Fashion</string>
+    <string-array name="product_categories">
+        <item>@string/mobiles</item>
+        <item>@string/essentials</item>
+        <item>@string/appliances</item>
+        <item>@string/books</item>
+        <item>@string/fashion</item>
+    </string-array>
 
     // Admin
     <string name="admin">Admin</string>
+
+    // Add product
+    <string name="add_product">Add Product</string>
+    <string name="select_product_images">Select Product Images</string>
+    <string name="product_name">Product Name</string>
+    <string name="description">Description</string>
+    <string name="price">Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="category">Category</string>
+    <string name="sell">Sell</string>
+    <string name="gallery_permission_required">App needs media permission to access your device photos</string>
 </resources>

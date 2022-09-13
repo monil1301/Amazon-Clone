@@ -1,12 +1,12 @@
 package com.shah.amazonclone.ui.components.common
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.shah.amazonclone.enums.ViewPosition
@@ -19,18 +19,18 @@ import com.shah.amazonclone.enums.ViewPosition
 fun A_DrawableView(
     padding: Dp,
     size: Dp,
-    resource: Int,
+    resource: ImageVector,
     description: String?,
     viewPosition: ViewPosition,
-    tint: ColorFilter?,
+    tint: Color,
 ) {
-    Image(
+    Icon(
         modifier = Modifier
             .padding(end = if (viewPosition == ViewPosition.Start) padding else 0.dp)
             .padding(start = if (viewPosition == ViewPosition.End) padding else 0.dp)
             .size(size),
-        painter = painterResource(id = resource),
-        colorFilter = tint,
+        imageVector = resource,
+        tint = tint,
         contentDescription = description,
     )
 }

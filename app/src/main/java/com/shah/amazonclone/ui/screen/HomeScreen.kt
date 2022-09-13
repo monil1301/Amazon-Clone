@@ -13,6 +13,7 @@ import com.shah.amazonclone.ui.components.home.DealOfTheDayView
 import com.shah.amazonclone.ui.components.home.ImageCarousel
 import com.shah.amazonclone.ui.components.home.TopCategories
 import com.shah.amazonclone.ui.components.topbar.HomeScreenTopBar
+import com.shah.amazonclone.utilities.helpers.Constants
 
 /**
  * Created by Monil Shah on 01/09/22.
@@ -33,7 +34,7 @@ fun HomeScreen() {
         ) {
             AddressBar()
             TopCategories()
-            ImageCarousel()
+            ImageCarousel(Constants.Resources.carouselImages)
             DealOfTheDayView()
         }
     }

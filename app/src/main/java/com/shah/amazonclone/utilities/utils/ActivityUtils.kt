@@ -1,4 +1,4 @@
-package com.shah.amazonclone.utilities.helpers
+package com.shah.amazonclone.utilities.utils
 
 import android.app.Activity
 import android.content.Context

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".application.AmazonCloneApplication"
@@ -15,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmazonClone"
         android:usesCleartextTraffic="true"
+        tools:replace="android:fullBackupContent"
         tools:targetApi="31">
         <activity
             android:name=".ui.activities.RoutesActivity"
@@ -38,7 +40,19 @@
         <activity
             android:name=".ui.activities.RootBottomTabBarActivity"
             android:exported="false"
-            android:theme="@style/Theme.AmazonClone" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AmazonClone"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.activities.AddProductActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AmazonClone"
+            tools:ignore="LockedOrientationActivity" />
+
+        <meta-data
+            android:name="CLOUDINARY_URL"
+            android:value="cloudinary://@dewwwkz1a" />
     </application>
 
 </manifest>

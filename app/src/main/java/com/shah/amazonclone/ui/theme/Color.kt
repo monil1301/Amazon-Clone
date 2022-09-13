@@ -22,6 +22,7 @@ val FireBrickRed = Color(0xFFBA1A1A)
 
 // Gray
 val DarkGray = Color(0xFF9E9E9E)
+val CapeCodGray = Color(0xFF474848)
 
 // White
 val SmokeWhite = Color(0xFFF8F8F8)

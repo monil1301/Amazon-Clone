@@ -13,7 +13,7 @@ import com.shah.amazonclone.network.base.ApiBuilder
 import com.shah.amazonclone.network.base.ResponseResource
 import com.shah.amazonclone.repositories.LoginRepository
 import com.shah.amazonclone.utilities.helpers.Constants
-import com.shah.amazonclone.utilities.helpers.ifLet
+import com.shah.amazonclone.utilities.utils.ifLet
 import kotlinx.coroutines.launch
 
 /**

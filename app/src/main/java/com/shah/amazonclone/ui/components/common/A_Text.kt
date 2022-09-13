@@ -22,13 +22,15 @@ fun A_Text(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        if (config.drawableResource != null && config.drawablePosition == ViewPosition.Start) {
-            A_DrawableView(config.drawablePadding,
-                config.drawableSize,
-                config.drawableResource,
-                config.drawableDescription,
-                config.drawablePosition,
-                config.drawableTint)
+        if (config.icon != null && config.iconPosition == ViewPosition.Start) {
+            A_DrawableView(
+                config.iconPadding,
+                config.iconSize,
+                config.icon,
+                config.iconDescription,
+                config.iconPosition,
+                config.iconTint
+            )
         }
         Text(
             text = text,
@@ -42,13 +44,15 @@ fun A_Text(
             maxLines = config.maxLines,
             overflow = config.overflow
         )
-        if (config.drawableResource != null && config.drawablePosition == ViewPosition.End) {
-            A_DrawableView(config.drawablePadding,
-                config.drawableSize,
-                config.drawableResource,
-                config.drawableDescription,
-                config.drawablePosition,
-                config.drawableTint)
+        if (config.icon != null && config.iconPosition == ViewPosition.End) {
+            A_DrawableView(
+                config.iconPadding,
+                config.iconSize,
+                config.icon,
+                config.iconDescription,
+                config.iconPosition,
+                config.iconTint
+            )
         }
     }
 }

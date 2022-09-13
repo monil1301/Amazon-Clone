@@ -33,7 +33,7 @@ import com.shah.amazonclone.ui.components.common.A_Column
 import com.shah.amazonclone.ui.components.common.A_OutlinedTextField
 import com.shah.amazonclone.ui.theme.AmazonCloneTheme
 import com.shah.amazonclone.ui.theme.OpenSans
-import com.shah.amazonclone.utilities.helpers.startActivityAndFinishCurrent
+import com.shah.amazonclone.utilities.utils.startActivityAndFinishCurrent
 import com.shah.amazonclone.viewmodels.SignUpViewModel
 
 /**
