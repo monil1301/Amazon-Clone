@@ -33,6 +33,8 @@ object Constants {
 
             private const val admin = "admin"
             const val addProduct = "$admin/addProduct"
+            const val allProducts = "$admin/allProducts"
+            const val deleteProduct = "$admin/deleteProduct"
         }
     }
 

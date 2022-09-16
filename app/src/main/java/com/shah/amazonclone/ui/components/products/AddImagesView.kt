@@ -1,4 +1,4 @@
-package com.shah.amazonclone.ui.components.addproducts
+package com.shah.amazonclone.ui.components.products
 
 import android.Manifest
 import android.content.Context

@@ -28,7 +28,7 @@ fun OrderImageItem(url: String) {
     ) {
         A_Image(
             modifier = Modifier
-                .size(150.dp)
+                .size(160.dp)
                 .clip(shape = RoundedCornerShape(12.dp)),
             url = url
         )
