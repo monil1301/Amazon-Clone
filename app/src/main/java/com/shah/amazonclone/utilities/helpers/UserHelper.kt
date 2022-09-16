@@ -15,11 +15,15 @@ import kotlinx.coroutines.runBlocking
 object UserHelper {
 
     var user: UserInfo? = null
+    var accessToken: String? = null
+        private set
 
     fun getUserDetails(application: AmazonCloneApplication) {
         user = runBlocking {
             val type =
                 application.userPreferences?.getString(Constants.DataStore.Keys.type).toString()
+            accessToken = application.userPreferences?.getString(Constants.DataStore.Keys.authToken)
+                .toString()
             UserInfo(
                 name = application.userPreferences?.getString(Constants.DataStore.Keys.userName),
                 address = application.userPreferences?.getString(Constants.DataStore.Keys.address),

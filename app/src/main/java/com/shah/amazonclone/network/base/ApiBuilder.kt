@@ -1,8 +1,7 @@
 package com.shah.amazonclone.network.base
 
-import com.shah.amazonclone.application.AmazonCloneApplication
 import com.shah.amazonclone.utilities.helpers.Constants
-import kotlinx.coroutines.runBlocking
+import com.shah.amazonclone.utilities.helpers.UserHelper
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -17,11 +16,11 @@ class ApiBuilder {
             "http://localHost:3000/" // replace localHost with your ip address
     }
 
-    fun <Api> buildApi(api: Class<Api>, application: AmazonCloneApplication?): Api {
+    fun <Api> buildApi(api: Class<Api>): Api {
 
         val okHttpBuilder = OkHttpClient.Builder()
         val client = okHttpBuilder.addInterceptor { chain ->
-            return@addInterceptor getResponse(chain, application)
+            return@addInterceptor getResponse(chain)
         }.build()
 
         return Retrofit.Builder()
@@ -34,10 +33,9 @@ class ApiBuilder {
 
     private fun getResponse(
         chain: Interceptor.Chain,
-        application: AmazonCloneApplication?
     ): Response {
         val response = chain.proceed(chain.request().newBuilder().also { requestBuilder ->
-            addHeaders(requestBuilder, application)
+            addHeaders(requestBuilder)
         }.build())
 
         return response
@@ -45,7 +43,6 @@ class ApiBuilder {
 
     private fun addHeaders(
         requestBuilder: Request.Builder,
-        application: AmazonCloneApplication?
     ) {
         requestBuilder.apply {
             header(
@@ -57,13 +54,9 @@ class ApiBuilder {
                 Constants.API.Headers.applicationJson
             )
 
-            // Get access token from data store and send it in request header
-            val accessToken =
-                runBlocking { application?.userPreferences?.getString(Constants.DataStore.Keys.authToken) }
-
             header(
                 Constants.API.Headers.authorization,
-                Constants.API.Headers.getBearerToken(accessToken)
+                Constants.API.Headers.getBearerToken(UserHelper.accessToken)
             )
         }
     }
