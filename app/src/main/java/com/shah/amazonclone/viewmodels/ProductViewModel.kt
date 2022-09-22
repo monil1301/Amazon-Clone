@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
  * Created by Monil Shah on 13/09/22.
  */
 
-class ProductViewModel() : ViewModel() {
+class ProductViewModel : ViewModel() {
 
     // Private variables
     private val apiBuilder = ApiBuilder()

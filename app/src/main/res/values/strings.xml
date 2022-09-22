@@ -33,6 +33,7 @@
     <string name="deal_of_the_day">Deal of the day</string>
 
     // Product Categories
+    <string name="keep_shopping_for_category">Keep Shopping for %1$s</string>
     <string name="mobiles">Mobiles</string>
     <string name="essentials">Essentials</string>
     <string name="appliances">Appliances</string>
