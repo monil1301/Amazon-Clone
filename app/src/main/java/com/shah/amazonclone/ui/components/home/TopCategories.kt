@@ -17,7 +17,7 @@ import com.shah.amazonclone.models.home.ProductCategory
  */
 
 @Composable
-fun TopCategories() {
+fun TopCategories(onCategoryClick: (String) -> Unit) {
     val topCategories = listOf(
         ProductCategory(
             stringResource(id = R.string.mobiles),
@@ -46,7 +46,9 @@ fun TopCategories() {
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(items = topCategories) { productCategory ->
-            ProductCategoryView(category = productCategory)
+            ProductCategoryView(category = productCategory) {
+                onCategoryClick(productCategory.title)
+            }
         }
     }
 }
@@ -54,5 +56,5 @@ fun TopCategories() {
 @Preview
 @Composable
 fun PreviewTopCategories() {
-    TopCategories()
+    TopCategories {}
 }

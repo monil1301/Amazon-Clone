@@ -1,6 +1,7 @@
 package com.shah.amazonclone.ui.components.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -23,9 +24,11 @@ import com.shah.amazonclone.ui.components.common.A_Column
  */
 
 @Composable
-fun ProductCategoryView(category: ProductCategory) {
+fun ProductCategoryView(category: ProductCategory, onClick: () -> Unit) {
     A_Column(
-        modifier = Modifier.size(60.dp),
+        modifier = Modifier
+            .size(60.dp)
+            .clickable { onClick() },
         verticalArrangement = Arrangement.spacedBy(2.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -49,5 +52,5 @@ fun PreviewProductCategoryView() {
             stringResource(id = R.string.mobiles),
             painterResource(id = R.drawable.mobiles)
         )
-    )
+    ) {}
 }

@@ -24,7 +24,11 @@ import com.shah.amazonclone.ui.components.orders.OrderImageItem
  */
 
 @Composable
-fun SingleProductView(product: Product, onDeleteClick: () -> Unit) {
+fun SingleProductView(
+    product: Product,
+    shouldShowDeleteIcon: Boolean = true,
+    onDeleteClick: () -> Unit = {}
+) {
     A_Column(
         Modifier.width(170.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -44,13 +48,14 @@ fun SingleProductView(product: Product, onDeleteClick: () -> Unit) {
                 overflow = TextOverflow.Ellipsis
             )
 
-            Icon(
-                modifier = Modifier
-                    .weight(0.2f)
-                    .clickable { onDeleteClick() },
-                imageVector = Icons.Outlined.Delete,
-                contentDescription = "Delete"
-            )
+            if (shouldShowDeleteIcon)
+                Icon(
+                    modifier = Modifier
+                        .weight(0.2f)
+                        .clickable { onDeleteClick() },
+                    imageVector = Icons.Outlined.Delete,
+                    contentDescription = "Delete"
+                )
         }
     }
 }

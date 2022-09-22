@@ -30,11 +30,16 @@ object Constants {
             private const val api = "api"
             const val signUp = "$api/signUp"
             const val login = "$api/signIn"
+            const val productByCategory = "$api/products"
 
             private const val admin = "admin"
             const val addProduct = "$admin/addProduct"
             const val allProducts = "$admin/allProducts"
             const val deleteProduct = "$admin/deleteProduct"
+        }
+
+        object QueryParams {
+            const val category = "category"
         }
     }
 
@@ -67,6 +72,18 @@ object Constants {
         }
     }
 
+    object Screen {
+        object Route {
+            const val home = "home"
+            const val category = "category"
+        }
+
+        object Title {
+            const val home = "Home"
+            const val category = "Category"
+        }
+    }
+
     object Resources {
         val carouselImages = listOf(
             "https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/WLA/TS/D37847648_Accessories_savingdays_Jan22_Cat_PC_1500.jpg",
@@ -75,5 +92,9 @@ object Constants {
             "https://images-na.ssl-images-amazon.com/images/G/31/Symbol/2020/00NEW/1242_450Banners/PL31_copy._CB432483346_.jpg",
             "https://images-na.ssl-images-amazon.com/images/G/31/img21/shoes/September/SSW/pc-header._CB641971330_.jpg",
         )
+    }
+
+    object BundleKeys {
+        const val category = "category"
     }
 }
