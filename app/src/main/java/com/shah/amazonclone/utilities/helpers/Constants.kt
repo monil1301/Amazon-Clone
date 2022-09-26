@@ -9,6 +9,7 @@ object Constants {
     object Size {
         const val userNameMinimumLength = 3
         const val passwordMinimumLength = 4
+        const val ratingRange = 5
     }
 
     object Validation {
@@ -31,6 +32,7 @@ object Constants {
             const val signUp = "$api/signUp"
             const val login = "$api/signIn"
             const val productByCategory = "$api/products"
+            const val searchProduct = "$api/products/search/{${QueryParams.name}}"
 
             private const val admin = "admin"
             const val addProduct = "$admin/addProduct"
@@ -40,6 +42,7 @@ object Constants {
 
         object QueryParams {
             const val category = "category"
+            const val name = "name"
         }
     }
 
@@ -96,5 +99,6 @@ object Constants {
 
     object BundleKeys {
         const val category = "category"
+        const val searchQuery = "searchQuery"
     }
 }

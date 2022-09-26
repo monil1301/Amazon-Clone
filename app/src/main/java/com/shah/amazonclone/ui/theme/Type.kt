@@ -56,9 +56,16 @@ val Typography = Typography(
     ),
     titleMedium = TextStyle(
         fontFamily = OpenSans,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Bold,
         fontSize = 18.sp,
         lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    ),
+    titleSmall = TextStyle(
+        fontFamily = OpenSans,
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp,
+        lineHeight = 21.sp,
         letterSpacing = 0.5.sp
     ),
 )

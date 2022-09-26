@@ -9,7 +9,8 @@ data class Product(
     var name: String? = null,
     var description: String? = null,
     var price: Float? = null,
-    var quality: Int? = null,
+    var rating: Float? = null,
+    var quantity: Int? = null,
     var category: String? = null,
     var images: ArrayList<String>? = null
 )
