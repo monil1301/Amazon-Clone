@@ -9,13 +9,15 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import com.shah.amazonclone.ui.activities.CategoryProductActivity
+import com.shah.amazonclone.ui.activities.SearchActivity
 import com.shah.amazonclone.ui.components.common.A_Column
 import com.shah.amazonclone.ui.components.home.AddressBar
 import com.shah.amazonclone.ui.components.home.DealOfTheDayView
 import com.shah.amazonclone.ui.components.home.ImageCarousel
 import com.shah.amazonclone.ui.components.home.TopCategories
-import com.shah.amazonclone.ui.components.topbar.HomeScreenTopBar
+import com.shah.amazonclone.ui.components.topbar.SearchFieldTopBar
 import com.shah.amazonclone.utilities.helpers.Constants
 
 /**
@@ -25,9 +27,14 @@ import com.shah.amazonclone.utilities.helpers.Constants
 @Composable
 fun HomeScreen() {
     val context = LocalContext.current
+    LocalFocusManager.current.clearFocus()
     Scaffold(
         topBar = {
-            HomeScreenTopBar()
+            SearchFieldTopBar { searchQuery ->
+                val intent = Intent(context, SearchActivity::class.java)
+                intent.putExtra(Constants.BundleKeys.searchQuery, searchQuery)
+                context.startActivity(intent)
+            }
         }
     ) { paddingValues ->
         A_Column(

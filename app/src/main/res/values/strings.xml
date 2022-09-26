@@ -60,4 +60,13 @@
     <string name="category">Category</string>
     <string name="sell">Sell</string>
     <string name="gallery_permission_required">App needs media permission to access your device photos</string>
+
+    // Product Details
+    <string name="free_shipping_eligible">Eligible for FREE Shipping</string>
+    <string name="in_stock">In Stock</string>
+    <string name="only_few_left">Only few items left</string>
+    <string name="out_of_stock">Out of Stock</string>
+
+    // Common
+    <string name="rupees">\u20B9 %1$s</string>
 </resources>

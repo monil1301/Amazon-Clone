@@ -129,7 +129,7 @@ fun AddProductScreen(onBackPress: () -> Unit) {
                         }
                     )
                 ) {
-                    product.quality = it.toInt()
+                    product.quantity = it.toInt()
                 }
 
                 A_DropdownMenu(
