@@ -33,6 +33,7 @@ object Constants {
             const val login = "$api/signIn"
             const val productByCategory = "$api/products"
             const val searchProduct = "$api/products/search/{${QueryParams.name}}"
+            const val rateProduct = "$api/product/rate"
 
             private const val admin = "admin"
             const val addProduct = "$admin/addProduct"
@@ -54,6 +55,7 @@ object Constants {
             const val userName = "userName"
             const val address = "address"
             const val type = "type"
+            const val userId = "userId"
         }
     }
 
