@@ -22,7 +22,7 @@ import com.shah.amazonclone.ui.components.common.A_Text
 @Composable
 fun SectionTitleWithClickableItem(
     title: String,
-    clickableText: String?,
+    clickableText: String? = null,
     onClick: () -> Unit = {}
 ) {
     A_Row(
