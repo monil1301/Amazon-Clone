@@ -34,6 +34,7 @@ object Constants {
             const val productByCategory = "$api/products"
             const val searchProduct = "$api/products/search/{${QueryParams.name}}"
             const val rateProduct = "$api/product/rate"
+            const val getDealOfTheDay = "$api/dealOfDay"
 
             private const val admin = "admin"
             const val addProduct = "$admin/addProduct"

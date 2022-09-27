@@ -7,6 +7,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
@@ -19,6 +20,7 @@ import com.shah.amazonclone.ui.components.home.ImageCarousel
 import com.shah.amazonclone.ui.components.home.TopCategories
 import com.shah.amazonclone.ui.components.topbar.SearchFieldTopBar
 import com.shah.amazonclone.utilities.helpers.Constants
+import com.shah.amazonclone.viewmodels.HomeViewModel
 
 /**
  * Created by Monil Shah on 01/09/22.
@@ -28,6 +30,10 @@ import com.shah.amazonclone.utilities.helpers.Constants
 fun HomeScreen() {
     val context = LocalContext.current
     LocalFocusManager.current.clearFocus()
+
+    val homeViewModel = remember { HomeViewModel() }
+    homeViewModel.getDealOfTheDay()
+
     Scaffold(
         topBar = {
             SearchFieldTopBar { searchQuery ->
@@ -50,7 +56,7 @@ fun HomeScreen() {
                 context.startActivity(intent)
             }
             ImageCarousel(Constants.Resources.carouselImages)
-            DealOfTheDayView()
+            homeViewModel.dealOfTheDay?.let { DealOfTheDayView(it) }
         }
     }
 }
