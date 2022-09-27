@@ -52,7 +52,7 @@ fun ProductListItemView(product: Product) {
                 maxLines = 2
             )
 
-            A_RatingBar(currentRating = product.rating ?: 0f)
+            A_RatingBar(currentRating = product.averageRating())
 
             Text(
                 text = stringResource(id = R.string.rupees, product.price.toString()),

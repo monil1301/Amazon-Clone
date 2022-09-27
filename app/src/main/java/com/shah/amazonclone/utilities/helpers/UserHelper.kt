@@ -27,6 +27,7 @@ object UserHelper {
             UserInfo(
                 name = application.userPreferences?.getString(Constants.DataStore.Keys.userName),
                 address = application.userPreferences?.getString(Constants.DataStore.Keys.address),
+                userId = application.userPreferences?.getString(Constants.DataStore.Keys.userId),
                 type = UserType.getType(type)
             )
         }

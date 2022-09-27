@@ -26,6 +26,7 @@ import com.gowtham.ratingbar.StepSize
 import com.shah.amazonclone.R
 import com.shah.amazonclone.models.common.getA_ButtonConfig
 import com.shah.amazonclone.models.product.Product
+import com.shah.amazonclone.models.product.Rating
 import com.shah.amazonclone.ui.activities.SearchActivity
 import com.shah.amazonclone.ui.components.common.A_Button
 import com.shah.amazonclone.ui.components.common.A_Column
@@ -34,6 +35,7 @@ import com.shah.amazonclone.ui.components.products.OrderIdWithRatingView
 import com.shah.amazonclone.ui.components.topbar.SearchFieldTopBar
 import com.shah.amazonclone.ui.theme.OpenSans
 import com.shah.amazonclone.utilities.helpers.Constants
+import com.shah.amazonclone.viewmodels.ProductDetailsViewModel
 
 /**
  * Created by Monil Shah on 26/09/22.
@@ -42,6 +44,7 @@ import com.shah.amazonclone.utilities.helpers.Constants
 @Composable
 fun ProductDetailsScreen(product: Product, onBackPressed: () -> Unit) {
     val context = LocalContext.current
+    val viewModel by lazy { ProductDetailsViewModel() }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -64,7 +67,7 @@ fun ProductDetailsScreen(product: Product, onBackPressed: () -> Unit) {
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            OrderIdWithRatingView(id = product._id ?: "", rating = product.rating)
+            OrderIdWithRatingView(id = product._id ?: "", rating = product.averageRating())
 
             Text(
                 text = product.name ?: "",
@@ -135,7 +138,7 @@ fun ProductDetailsScreen(product: Product, onBackPressed: () -> Unit) {
                 style = MaterialTheme.typography.titleLarge
             )
 
-            var rating by remember { mutableStateOf(0f) }
+            var rating by remember { mutableStateOf(product.myRating()) }
 
             val config = RatingBarConfig()
                 .activeColor(MaterialTheme.colorScheme.secondary)
@@ -153,8 +156,10 @@ fun ProductDetailsScreen(product: Product, onBackPressed: () -> Unit) {
                 config = config,
                 onValueChange = {
                     rating = it
-                }, onRatingChanged = {
+                },
+                onRatingChanged = {
                     rating = it
+                    viewModel.rateProduct(Rating(rating = rating, id = product._id))
                 }
             )
         }

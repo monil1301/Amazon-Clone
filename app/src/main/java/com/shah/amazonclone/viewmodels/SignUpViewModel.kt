@@ -42,14 +42,16 @@ class SignUpViewModel(application: AmazonCloneApplication) : ViewModel() {
                         response.value.token,
                         response.value.name,
                         response.value.address,
-                        response.value.type
-                    ) { (token, name, address, userType) ->
+                        response.value.type,
+                        response.value._id
+                    ) { (token, name, address, userType, userId) ->
                         saveStringToDataStore(
                             hashMapOf(
                                 Constants.DataStore.Keys.authToken to token,
                                 Constants.DataStore.Keys.userName to name,
                                 Constants.DataStore.Keys.address to address,
                                 Constants.DataStore.Keys.type to userType,
+                                Constants.DataStore.Keys.userId to userId,
                             )
                         )
                     }
