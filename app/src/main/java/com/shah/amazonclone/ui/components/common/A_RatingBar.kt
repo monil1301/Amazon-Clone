@@ -42,7 +42,7 @@ fun A_RatingBar(
 
 @Composable
 @Preview
-fun PreviewVV_RatingBar() {
+fun PreviewA_RatingBar() {
     A_Row {
         A_RatingBar(
             range = 1..Constants.Size.ratingRange,

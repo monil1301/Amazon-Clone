@@ -100,5 +100,6 @@ object Constants {
     object BundleKeys {
         const val category = "category"
         const val searchQuery = "searchQuery"
+        const val product = "product"
     }
 }

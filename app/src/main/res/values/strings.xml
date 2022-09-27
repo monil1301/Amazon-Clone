@@ -66,6 +66,10 @@
     <string name="in_stock">In Stock</string>
     <string name="only_few_left">Only few items left</string>
     <string name="out_of_stock">Out of Stock</string>
+    <string name="deal_price">Deal Price: </string>
+    <string name="buy_now">Buy Now</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="rate_the_product">Rate the Product</string>
 
     // Common
     <string name="rupees">\u20B9 %1$s</string>
