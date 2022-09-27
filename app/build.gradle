@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -87,4 +88,7 @@ dependencies {
 
     // Cloudinary
     implementation 'com.cloudinary:cloudinary-android:2.2.0'
+
+    // Rating Bar
+    implementation 'com.github.a914-gowtham:compose-ratingbar:1.2.4'
 }

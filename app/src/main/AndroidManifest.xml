@@ -61,6 +61,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AmazonClone"
             tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.activities.ProductDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AmazonClone"
+            tools:ignore="LockedOrientationActivity" />
 
         <meta-data
             android:name="CLOUDINARY_URL"

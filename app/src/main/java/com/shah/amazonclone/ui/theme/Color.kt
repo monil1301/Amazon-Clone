@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 val OrangePeel = Color(0xFFFF9900)
 
 // Yellow
-val SupernovaYellow = Color(0xFFFCBD34)
+val SupernovaYellow = Color(0xFFFED813)
 
 // Blue
 val DenimBlue = Color(0xFF146EB4)
