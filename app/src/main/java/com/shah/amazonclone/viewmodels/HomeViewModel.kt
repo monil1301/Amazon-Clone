@@ -10,6 +10,8 @@ import com.shah.amazonclone.network.HomeApi
 import com.shah.amazonclone.network.base.ApiBuilder
 import com.shah.amazonclone.network.base.ResponseResource
 import com.shah.amazonclone.repositories.HomeRepository
+import com.shah.amazonclone.utilities.helpers.FlowEvents
+import com.shah.amazonclone.utilities.helpers.UserHelper
 import kotlinx.coroutines.launch
 
 /**
@@ -32,6 +34,17 @@ class HomeViewModel : ViewModel() {
                 is ResponseResource.Failure -> {}
                 is ResponseResource.Success -> {
                     dealOfTheDay = response.value
+                }
+            }
+        }
+
+    fun getUser() =
+        viewModelScope.launch {
+            when (val response = repository.getUser()) {
+                is ResponseResource.Failure -> {}
+                is ResponseResource.Success -> {
+                    UserHelper.user?.cart = response.value.cart
+                    FlowEvents.emitUserCart(UserHelper.user?.cart)
                 }
             }
         }

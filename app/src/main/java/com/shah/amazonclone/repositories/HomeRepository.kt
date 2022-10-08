@@ -12,4 +12,8 @@ class HomeRepository(private val api: HomeApi) : BaseRepository() {
     suspend fun getDealOfTheDay() = safeApiCall {
         api.getDealOfTheDay()
     }
+
+    suspend fun getUser() = safeApiCall {
+        api.getUser()
+    }
 }

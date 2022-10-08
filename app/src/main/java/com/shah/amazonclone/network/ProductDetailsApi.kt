@@ -1,5 +1,6 @@
 package com.shah.amazonclone.network
 
+import com.shah.amazonclone.models.UserInfo
 import com.shah.amazonclone.models.product.Product
 import com.shah.amazonclone.models.product.Rating
 import com.shah.amazonclone.utilities.helpers.Constants
@@ -14,4 +15,7 @@ interface ProductDetailsApi {
 
     @POST(Constants.API.Path.rateProduct)
     suspend fun rateProduct(@Body rating: Rating): Product
+
+    @POST(Constants.API.Path.addToCart)
+    suspend fun addToCart(@Body product: Product): UserInfo
 }

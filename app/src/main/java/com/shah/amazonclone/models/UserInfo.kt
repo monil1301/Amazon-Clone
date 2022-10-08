@@ -10,5 +10,6 @@ data class UserInfo(
     val name: String? = null,
     val address: String? = null,
     val type: UserType? = null,
-    val userId: String? = null
+    val userId: String? = null,
+    var cart: List<CartItem>? = null
 )

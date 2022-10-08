@@ -45,6 +45,7 @@ import com.shah.amazonclone.viewmodels.ProductDetailsViewModel
 fun ProductDetailsScreen(product: Product, onBackPressed: () -> Unit) {
     val context = LocalContext.current
     val viewModel by lazy { ProductDetailsViewModel() }
+    var isBeingAddedToCart by remember { mutableStateOf(false) }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -126,9 +127,16 @@ fun ProductDetailsScreen(product: Product, onBackPressed: () -> Unit) {
             A_Button(
                 modifier = Modifier.fillMaxWidth(),
                 title = stringResource(id = R.string.add_to_cart),
-                buttonConfig = getA_ButtonConfig(backgroundColor = MaterialTheme.colorScheme.secondaryContainer)
+                buttonConfig = getA_ButtonConfig(
+                    backgroundColor = MaterialTheme.colorScheme.secondaryContainer,
+                    shouldShowLoader = isBeingAddedToCart,
+                    isEnabled = !isBeingAddedToCart
+                )
             ) {
-
+                isBeingAddedToCart = true
+                viewModel.addToCart(product) {
+                    isBeingAddedToCart = false
+                }
             }
 
             Spacer(modifier = Modifier.height(12.dp))
