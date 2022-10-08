@@ -36,6 +36,7 @@ object Constants {
             const val rateProduct = "$api/product/rate"
             const val getDealOfTheDay = "$api/dealOfDay"
             const val addToCart = "$api/addToCart"
+            const val removeFromCart = "$api/removeFromCart/{${QueryParams.id}}"
             const val user = "user"
 
             private const val admin = "admin"
@@ -47,6 +48,7 @@ object Constants {
         object QueryParams {
             const val category = "category"
             const val name = "name"
+            const val id = "id"
         }
     }
 
