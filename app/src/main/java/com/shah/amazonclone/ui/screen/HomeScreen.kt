@@ -32,6 +32,7 @@ fun HomeScreen() {
     LocalFocusManager.current.clearFocus()
 
     val homeViewModel = remember { HomeViewModel() }
+    homeViewModel.getUser()
     homeViewModel.getDealOfTheDay()
 
     Scaffold(

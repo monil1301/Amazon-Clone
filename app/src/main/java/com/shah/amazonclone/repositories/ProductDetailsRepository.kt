@@ -1,5 +1,6 @@
 package com.shah.amazonclone.repositories
 
+import com.shah.amazonclone.models.product.Product
 import com.shah.amazonclone.models.product.Rating
 import com.shah.amazonclone.network.ProductDetailsApi
 import com.shah.amazonclone.repositories.base.BaseRepository
@@ -12,5 +13,9 @@ class ProductDetailsRepository(private val api: ProductDetailsApi) : BaseReposit
 
     suspend fun rateProduct(rating: Rating) = safeApiCall {
         api.rateProduct(rating)
+    }
+
+    suspend fun addToCart(product: Product) = safeApiCall {
+        api.addToCart(product)
     }
 }
