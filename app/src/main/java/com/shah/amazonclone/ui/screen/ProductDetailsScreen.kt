@@ -119,7 +119,6 @@ fun ProductDetailsScreen(product: Product, onBackPressed: () -> Unit) {
                 modifier = Modifier.fillMaxWidth(),
                 title = stringResource(id = R.string.buy_now),
                 buttonConfig = getA_ButtonConfig(backgroundColor = MaterialTheme.colorScheme.secondary)
-
             ) {
 
             }

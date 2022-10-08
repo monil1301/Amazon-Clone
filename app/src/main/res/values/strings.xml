@@ -71,6 +71,14 @@
     <string name="add_to_cart">Add to Cart</string>
     <string name="rate_the_product">Rate the Product</string>
 
+    // Cart
+    <string name="subtotal">Subtotal</string>
+    <string name="proceed_to_buy">Proceed to Buy</string>
+    <plurals name="n_items">
+        <item quantity="one">(%d item)</item>
+        <item quantity="other">(%d items)</item>
+    </plurals>
+
     // Common
     <string name="rupees">\u20B9 %1$s</string>
 </resources>
