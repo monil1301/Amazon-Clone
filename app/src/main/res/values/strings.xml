@@ -79,6 +79,14 @@
         <item quantity="other">(%d items)</item>
     </plurals>
 
+    // Address
+    <string name="or">OR</string>
+    <string name="flat_house_no">Flat, House no. Building</string>
+    <string name="area_street">Area, Street</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="town_or_city">Town/City</string>
+    <string name="proceed">Proceed</string>
+
     // Common
     <string name="rupees">\u20B9 %1$s</string>
 </resources>

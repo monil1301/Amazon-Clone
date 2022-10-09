@@ -44,6 +44,7 @@ class HomeViewModel : ViewModel() {
                 is ResponseResource.Failure -> {}
                 is ResponseResource.Success -> {
                     UserHelper.user?.cart = response.value.cart
+                    UserHelper.user?.address = response.value.address
                     FlowEvents.emitUserCart(UserHelper.user?.cart)
                 }
             }

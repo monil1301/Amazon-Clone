@@ -8,7 +8,7 @@ import com.shah.amazonclone.enums.UserType
 
 data class UserInfo(
     val name: String? = null,
-    val address: String? = null,
+    var address: String? = null,
     val type: UserType? = null,
     val userId: String? = null,
     var cart: List<CartItem>? = null
