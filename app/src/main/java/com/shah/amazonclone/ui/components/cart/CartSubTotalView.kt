@@ -1,6 +1,7 @@
 package com.shah.amazonclone.ui.components.cart
 
 import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -21,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.shah.amazonclone.R
 import com.shah.amazonclone.models.CartItem
 import com.shah.amazonclone.models.common.getA_ButtonConfig
+import com.shah.amazonclone.ui.activities.AddressActivity
 import com.shah.amazonclone.ui.components.common.A_Button
 import com.shah.amazonclone.ui.components.common.A_Column
 import com.shah.amazonclone.ui.theme.OpenSans
@@ -61,7 +63,8 @@ fun CartSubTotalView(cart: List<CartItem>) {
             title = buttonText,
             buttonConfig = getA_ButtonConfig(backgroundColor = MaterialTheme.colorScheme.secondaryContainer)
         ) {
-
+            val intent = Intent(context, AddressActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }

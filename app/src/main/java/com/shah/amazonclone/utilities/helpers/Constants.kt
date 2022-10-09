@@ -37,6 +37,7 @@ object Constants {
             const val getDealOfTheDay = "$api/dealOfDay"
             const val addToCart = "$api/addToCart"
             const val removeFromCart = "$api/removeFromCart/{${QueryParams.id}}"
+            const val addAddress = "$api/addAddress"
             const val user = "user"
 
             private const val admin = "admin"
