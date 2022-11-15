@@ -87,6 +87,15 @@
     <string name="town_or_city">Town/City</string>
     <string name="proceed">Proceed</string>
 
+    // Payment Details
+    <string name="delivering_to">Delivering To - </string>
+    <string name="payment_options">Payment Options</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="cash_on_delivery">Cash on Delivery</string>
+    <string name="pay_on_verification">Pay on Verification</string>
+    <string name="place_order">Place Order</string>
+    <string name="total">Total</string>
+
     // Common
     <string name="rupees">\u20B9 %1$s</string>
 </resources>

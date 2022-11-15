@@ -1,6 +1,7 @@
 package com.shah.amazonclone.ui.screen
 
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Spacer
@@ -24,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.shah.amazonclone.R
 import com.shah.amazonclone.models.Address
 import com.shah.amazonclone.models.common.getA_ButtonConfig
+import com.shah.amazonclone.ui.activities.PaymentActivity
 import com.shah.amazonclone.ui.components.address.newAddressInput
 import com.shah.amazonclone.ui.components.common.A_Button
 import com.shah.amazonclone.ui.components.common.A_Column
@@ -86,7 +88,10 @@ fun AddressScreen(onBackPress: () -> Unit) {
                 title = stringResource(id = R.string.proceed),
                 buttonConfig = getA_ButtonConfig(backgroundColor = MaterialTheme.colorScheme.secondaryContainer)
             ) {
-                saveAddressAndProceed(getAddress, addressViewModel, context)
+                saveAddressAndProceed(getAddress, addressViewModel, context) {
+                    val intent = Intent(context, PaymentActivity::class.java)
+                    context.startActivity(intent)
+                }
             }
         }
     }
@@ -95,17 +100,18 @@ fun AddressScreen(onBackPress: () -> Unit) {
 private fun saveAddressAndProceed(
     getAddress: () -> Pair<Boolean, String>,
     addressViewModel: AddressViewModel,
-    context: Context
+    context: Context,
+    onProceed: () -> Unit,
 ) {
     val address = getAddress()
     if (address.first) {
         if (address.second.isNotBlank()) {
             addressViewModel.addAddress(Address(address.second)) {
-                // Go to payment screen
+                onProceed()
             }
         }
     } else if (!UserHelper.user?.address.isNullOrBlank()) {
-        // Go to payment screen
+        onProceed()
     } else {
         Toast.makeText(context, "Address is mandatory", Toast.LENGTH_LONG).show()
     }
