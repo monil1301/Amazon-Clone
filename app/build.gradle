@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.shah.amazonclone'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.shah.amazonclone"
         minSdk 26
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -38,7 +38,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.1.1'
+        kotlinCompilerExtensionVersion '1.3.1'
     }
     packagingOptions {
         resources {
@@ -51,12 +51,12 @@ dependencies {
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
-    implementation 'androidx.activity:activity-compose:1.5.0'
+    implementation 'androidx.activity:activity-compose:1.6.1'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation 'androidx.compose.material3:material3:1.0.0-alpha14'
     implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.compiler:compiler:1.2.0"
+    implementation "androidx.compose.compiler:compiler:1.3.2"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -91,4 +91,8 @@ dependencies {
 
     // Rating Bar
     implementation 'com.github.a914-gowtham:compose-ratingbar:1.2.4'
+
+    // Razorpay
+    def razorParVersion = "1.6.25"
+    implementation "com.razorpay:checkout:$razorParVersion"
 }
